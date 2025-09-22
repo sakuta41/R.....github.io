@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Flores Amarillas.mp3">
+    <link rel="stylesheet" href="Flores Amarillas.mp3">
     <title>Ramo de Tulipanes Amarillos</title>
     <style>
        html {
@@ -1140,20 +1140,26 @@
       </svg>
     </div>
   </div>
-
-        <audio autoplay loop>
+    <audio autoplay loop>
     <source src="Flores Amarillas.mp3" type="audio/mpeg">
   </audio>
-
+ 
   <script>
     document.body.classList.remove('not-loaded');
     // Espera a que terminen las animaciones de los tulipanes (~2.5s)
     setTimeout(function() {
       document.querySelector('.ramo').classList.add('ramo--visible');
     }, 2500);
+
+    const musica = document.getElementById("musica");
+
+    // Intentar reproducir automáticamente
+    musica.play().catch(() => {
+      // Si el navegador bloquea el autoplay, esperamos el primer clic del usuario
+      document.body.addEventListener("click", () => {
+        musica.play();
+      }, { once: true });
+    });
   </script>
 </body>
 </html>
-
-
-
