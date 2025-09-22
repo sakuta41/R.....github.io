@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Flores Amarillas.mp3">
-    <title>Ramo de Tulipanes Amarillos</title>
+    <title>...................</title>
     <style>
        html {
       overflow-y: scroll;
@@ -920,14 +919,25 @@
         .monte-der {
           margin-right: -30px;
         }
+
+.music {
+      position: fixed;      /* se queda fijo en la pantalla */
+      bottom: 10px;         /* separado 10px de abajo */
+      left: 60%;            /* lo ponemos a la mitad */
+      transform: translateX(-100%); /* lo centramos */
+      background: rgba(255, 255, 255, 0.8);
+      padding: 5px 10px;
+      border-radius: 10px;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.3);
+      }        
     </style>
 </head>
 <body class="not-loaded">
   <div class="night"></div>
   
   <div class="special-text">Holaaaa... te regalo estas flores amarillas.. aunque sean virtuales xdd.
-  </br> Que este dia sea especial para ti.. aunque sea de esta forma chiquitita, o por este medio mas que nada 🤧.
-</br> 
+  </br> Que este dia sea especial para ti.. aunque sea de esta forma pequeña, o por este medio mas que nada 🤧
+</br>
   </div>
   
 
@@ -1127,7 +1137,7 @@
       <div class="flower__line"></div>
     </div>
   </div>
-  <div class="ramo">
+<div class="ramo">
     <img src="https://github.com/Baque2005/public-files/blob/main/2025/240ac6a013e67096cb3c12002d928aa3.png?raw=true" alt="Ramo de flores">
     <div class="montes">
       <svg class="monte monte-izq" viewBox="0 0 120 60" width="120" height="60">
@@ -1140,9 +1150,11 @@
       </svg>
     </div>
   </div>
-    <audio autoplay loop>
+  <div class="music">
+<audio controls id="music" autoplay loop>
     <source src="Flores Amarillas.mp3" type="audio/mpeg">
   </audio>
+</div>
  
   <script>
     document.body.classList.remove('not-loaded');
@@ -1151,15 +1163,11 @@
       document.querySelector('.ramo').classList.add('ramo--visible');
     }, 2500);
 
-    const musica = document.getElementById("musica");
-
-    // Intentar reproducir automáticamente
-    musica.play().catch(() => {
-      // Si el navegador bloquea el autoplay, esperamos el primer clic del usuario
-      document.body.addEventListener("click", () => {
-        musica.play();
-      }, { once: true });
+    document.addEventListener("click", () => {
+      const audio = document.getElementById("musica");
+      audio.play();
     });
+
   </script>
 </body>
 </html>
